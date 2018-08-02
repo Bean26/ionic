@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NormalLoadPage } from '../normal-load/normal-load';
 import { NavController, Events } from 'ionic-angular';
-
+import { ActionSheetController } from 'ionic-angular';
 // 装饰器的用法，意思就是将此文件和home.html绑定了
 @Component({ selector: 'page-home', templateUrl: 'home.html' })
 
@@ -13,7 +13,7 @@ export class HomePage {
   isShown: boolean = true;
   names: string[] = ['张三', '李四', '王二'];
  
-  constructor(public navCtrl: NavController, public events:Events) {
+  constructor(public navCtrl: NavController, public events: Events, public actionSheetCtrl: ActionSheetController) {
     console.log("HomePage constructor");
    }
 
@@ -39,6 +39,34 @@ export class HomePage {
   }
   toLoginPage() {
     this.navCtrl.push('LoginPage')
+  }
+
+  
+  presentActionSheet() {
+    const actionSheet = this.actionSheetCtrl.create({
+      title: 'Modify your album',
+      buttons: [
+        {
+          text: 'Destructive',
+          role: 'destructive',
+          handler: () => {
+            console.log('Destructive clicked');
+          }
+        }, {
+          text: 'Archive',
+          handler: () => {
+            console.log('Archive clicked');
+          }
+        }, {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
 
