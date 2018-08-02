@@ -1,14 +1,23 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController , ViewController } from 'ionic-angular';
+
 
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+  template: `
+    <ion-content>
+      <h1>My PopoverPage</h1>
+      <button ion-button (click)="pushPage()">Call pushPage</button>
+     </ion-content>
+    `
 })
 export class AboutPage {
+  constructor(
+    public viewCtrl: ViewController,
+    public navCtrl: NavController
+  ) { }
 
-  constructor(public navCtrl: NavController) {
-
+  pushPage() {
+    // this.viewCtrl.dismiss();
+    this.navCtrl.push('NetPage');
   }
-
 }

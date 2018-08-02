@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpProvider } from '../providers/http/http';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,13 @@ import { HttpProvider } from '../providers/http/http';
     HomePage,
     TabsPage,
     NormalLoadPage,
-    SettingPage
+    SettingPage,
+  
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp,{
       //ios风格
       backButtonIcon: 'ios-arrow-back',
@@ -52,7 +55,8 @@ import { HttpProvider } from '../providers/http/http';
     HomePage,
     TabsPage,
     NormalLoadPage,
-    SettingPage
+    SettingPage,
+   
   ],
   providers: [
     StatusBar,
