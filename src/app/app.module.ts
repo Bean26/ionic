@@ -28,7 +28,8 @@ import { ComponentsModule } from "../components/components.module";
     HomePage,
     TabsPage,
     NormalLoadPage,
-    SettingPage
+    SettingPage,
+  
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,8 @@ import { ComponentsModule } from "../components/components.module";
     HomePage,
     TabsPage,
     NormalLoadPage,
-    SettingPage
+    SettingPage,
+   
   ],
   providers: [
     StatusBar,

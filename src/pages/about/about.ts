@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Device } from "@ionic-native/device";
-import { Camera, CameraOptions  } from "@ionic-native/camera";
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
-@Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
-})
+import { Device } from "@ionic-native/device";
+import { Camera, CameraOptions } from "@ionic-native/camera";
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
+import { NavController, ViewController } from 'ionic-angular';
+
+
+@Component({ selector: 'about-home', templateUrl: 'about.html' })
 export class AboutPage {
   uuid = "";
   base64Image = ""
   constructor(public navCtrl: NavController, private device: Device, private camera: Camera, private qrScanner: QRScanner) {
     console.log('device UUID is: ' + this.device.uuid)
+
   }
   checkUUID() {
     this.uuid = this.device.uuid
   }
-  showCamera(){
+  showCamera() {
     const options: CameraOptions = {
       quality: 50,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -64,6 +64,7 @@ export class AboutPage {
         }
       })
       .catch((e: any) => console.log('Error is', e));
-  }
 
+
+  }
 }
