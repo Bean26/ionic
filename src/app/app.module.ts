@@ -10,10 +10,15 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { NormalLoadPage } from '../pages/normal-load/normal-load';
 import { SettingPage } from "../pages/setting/setting";
 
+import { Device } from "@ionic-native/device";
+import { Camera } from "@ionic-native/camera";
+import { QRScanner } from '@ionic-native/qr-scanner';
+
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpProvider } from '../providers/http/http';
+import { ComponentsModule } from "../components/components.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +33,7 @@ import { HttpProvider } from '../providers/http/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp,{
       //ios风格
       backButtonIcon: 'ios-arrow-back',
@@ -58,7 +64,10 @@ import { HttpProvider } from '../providers/http/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HttpProvider
+    HttpProvider,
+    Device,
+    Camera,
+    QRScanner
   ]
 })
 
